@@ -21,6 +21,6 @@ namespace Home.Journal.Common.Model
 
         public string LastModifiedBy { get; set; }
 
-        public DateTimeOffset LastModifiedDate { get; set; } = DateTimeOffset.Now;
+        public DateTimeOffset? LastModifiedDate { get; set; } = DateTimeOffset.Now;
     }
 }

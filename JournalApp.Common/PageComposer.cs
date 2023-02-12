@@ -25,7 +25,7 @@ namespace Home.Journal.Common
 
         public static string GetHtml(string pageUrl, User currentUser)
         {
-            var page = PageDbHelper.GetPageByUrl(pageUrl);
+            var page = PageDbHelper.GetPageByUrl(pageUrl, false);
 
             return GetHtml(page, currentUser);
         }

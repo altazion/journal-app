@@ -23,14 +23,20 @@ namespace Home.Journal.Web
 
         public Task Invoke(HttpContext httpContext)
         {
-            var url = httpContext.Request.Path;
-            if (Path.GetExtension(url.Value.ToLowerInvariant()).Equals(".html"))
+            var url = httpContext.Request.Path.Value.ToLowerInvariant();
+            if (url.EndsWith("/"))
+                url = url + "index.html";
+
+            if (Path.GetExtension(url).Equals(".html"))
             {
                 httpContext.Response.StatusCode = 200;
                 httpContext.Response.ContentType = "text/html";
 
                 var template = GetTemplate();
-                var page = PageDbHelper.GetPageByUrl(url.Value);
+                var page = PageDbHelper.GetPageByUrl(url, false);
+                if(page==null)
+                    return _next(httpContext);
+
                 var content = PageComposer.GetHtml(page, null);
 
                 template = template.Replace("%%TITLE%%", page.Title);
