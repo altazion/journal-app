@@ -5,6 +5,18 @@
     <RootNamespace>Home.Journal.Web</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\scripts\controls.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="content\pagetemplate.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="content\pagetemplate.html" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="AdaptiveCards" Version="2.7.3" />
 		<PackageReference Include="GeoTimeZone" Version="4.1.0" />
@@ -12,6 +24,10 @@
 		<PackageReference Include="Markdig" Version="0.30.2" />
 		<PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.1.0" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.2.0" />
+		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.9.5">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="MongoDB.Driver" Version="2.11.1" />
 		<PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.13" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -22,6 +38,10 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\JournalApp.Common\JournalApp.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <TypeScriptCompile Include="wwwroot\scripts\controls.ts" />
 	</ItemGroup>
 
 

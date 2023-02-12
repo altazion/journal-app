@@ -1,7 +1,8 @@
+using Home.Journal.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 
-namespace JournalApp.Web
+namespace Home.Journal.Web
 {
     public class Program
     {
@@ -12,6 +13,8 @@ namespace JournalApp.Web
 
             var app = builder.Build();
 
+
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -20,12 +23,15 @@ namespace JournalApp.Web
                 app.UseHsts();
             }
 
+            app.UseJournalPageMiddleware();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.AddAuthorization();
+            //app.UseAuthorization();
 
             app.Run();
         }
