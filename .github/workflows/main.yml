@@ -1,0 +1,28 @@
+# publish-nuget.yml
+name: Publish NuGet Package on Push to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "6.0"
+
+      - name: Build, Test, and Publish NuGet
+        uses: wahinekai/actions-publish-nuget@v3.0.1
+        with:
+          version: 1.0.0
+          project-path: JournalApp.Common/JournalApp.Common.csproj
+          solution-path: maNoir.JournalApp.sln
+          nuget-feed-password: ${{ secrets.PACKAGES_TOKEN }}
