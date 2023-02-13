@@ -10,5 +10,7 @@ namespace Home.Journal.Common
     public interface IPageSectionComposer
     {
         string GetHtml(Page page, PageSection section, User currentUser, string outputTagIdSuffix);
+
+        public string[] AdditionalClasses { get; }
     }
 }

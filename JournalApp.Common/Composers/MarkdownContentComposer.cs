@@ -1,6 +1,7 @@
 ﻿using Home.Journal.Common.Model;
 using Markdig;
 using Markdig.Syntax;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,9 @@ namespace Home.Journal.Common.Composers
         {
             _pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
         }
-            
+
+        public string[] AdditionalClasses => new string[0];
+
         public string GetHtml(Page page, PageSection section, User currentUser, string outputTagIdSuffix)
         {
             StringBuilder blr = new StringBuilder();

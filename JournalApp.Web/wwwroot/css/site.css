@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400;1,600&display=swap');
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -9,10 +11,75 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+html, body, td, div {
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
-  margin-bottom: 60px;
+  margin:0;
+  padding:0;
+  color:#393939;
+  background-color:#fcfcfc;
+}
+
+#manoirHeaderBar {
+    display:block;
+    border-bottom:solid 1px #dcdcdc;
+    background:#ffffff;
+}
+
+#manoirHeaderBar nav {
+    position:fixed;
+    visibility:hidden;
+}
+
+    #manoirHeaderBar .header-bar {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 40px;
+    }
+
+    #manoirHeaderBar .breadCrumb {
+        flex-grow: 1;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    #manoirHeaderBar .breadCrumb ul {
+        margin:0;
+        list-style-type:none;
+        padding:0;
+    }
+
+    #manoirHeaderBar .breadCrumb li {
+        display:inline-block;
+        color:#898989;
+    }
+
+    #manoirHeaderBar button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    #manoirHeaderBar button.journal-button {
+        font-size: 18px;
+        background: #004F7C;
+        padding: 4px 10px 0px 10px;
+        color: white;
+    }
+
+    #manoirHeaderBar button.login-button {
+        width:160px;
+        display:inline-block;
+    }
+
+main article {
+    padding: 10px 24px;
+    max-width: 768px;
+    margin: auto;
 }

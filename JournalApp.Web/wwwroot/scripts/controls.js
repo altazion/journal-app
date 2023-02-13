@@ -3,7 +3,25 @@ var Journal;
     class MainMenuBar extends HTMLElement {
         connectedCallback() {
             var self = this;
-            this.innerHTML = '<section id="manoirMainMenu" class="manoir-main-menu-content"><button class="manoir-main-menu-close"><img src="/assets/imgs/streamlinehq-close-interface-essential.svg" /></button><ul></ul></section>';
+            this.innerHTML = `<header id="manoirHeaderBar" class="manoir-main-header">
+                <div class="header-bar">
+                    <div class='breadCrumb'>
+                        <ul>
+                            <li><span class='icon icon-home'></span></li>
+                        </ul>
+                    </div>
+
+                    <button class='journal-button'><span class='icon icon-date'></span></button>
+                    <button class='login-button'></span></button>
+                </div>
+                <nav>
+                    <ul>
+                        <li><span class='icon icon-home'></span><span>Home</span></li>
+                    </ul>
+                    <button>Switch to...</button>
+                </nav>
+
+                </header>`;
             //$("#manoirMainMenu .manoir-main-menu-close").click(function (e) {
             //    e.preventDefault();
             //    $("body").removeClass("menu-opened");

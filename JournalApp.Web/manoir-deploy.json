@@ -1,0 +1,6 @@
+{
+  "Kind": "PersonalApps",
+  "Name": "JournalApp",
+  "ImageName": "manoir-journalpp",
+  "DockerFile": "DockerFile.Release"
+}

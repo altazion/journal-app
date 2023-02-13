@@ -32,23 +32,39 @@ namespace Home.Journal.Common
         {
             var collection = MongoDbHelper.GetClient<Page>();
             var lst = collection.Find(x => x.Path.Equals(pageUrl)
-                    && !x.DateDeleted.HasValue
-                    /*&& (isAuthenticated ? !x.UserIds.Contains("public") : x.UserIds.Contains("public"))*/)
+                    && (!x.DateDeleted.HasValue)
+                    && x.IsPublic == !isAuthenticated)
                 .FirstOrDefault();
             return lst;
         }
 
         public static void TestCreate()
         {
+            var pth = Environment.CurrentDirectory;
+            pth = Path.Combine(pth, "..", "sample-data");
+            // c'est crade, mais c'est fait juste pour les premiers tests
             var pages = Newtonsoft.Json.JsonConvert.DeserializeObject<Page[]>(
-                File.ReadAllText(@"c:\temp\pages.json"));
+                File.ReadAllText(Path.Combine(pth, "pages.json")));
             var cPage = MongoDbHelper.GetClient<Page>();
-            cPage.InsertMany(pages);
-
+            foreach (var p in pages)
+            {
+                var t = cPage.Find(x => x.Id.Equals(p.Id)).FirstOrDefault();
+                if (t == null)
+                    cPage.InsertOne(p);
+                else
+                    cPage.ReplaceOne(x => x.Id.Equals(p.Id), p);
+            }
             var sections = Newtonsoft.Json.JsonConvert.DeserializeObject<PageSection[]>(
-                File.ReadAllText(@"c:\temp\page-sections.json"));
+                File.ReadAllText(Path.Combine(pth, "page-sections.json")));
             var cPageSec = MongoDbHelper.GetClient<PageSection>();
-            cPageSec.InsertMany(sections);
+            foreach (var s in sections)
+            {
+                var t = cPageSec.Find(x => x.Id.Equals(s.Id)).FirstOrDefault();
+                if (t == null)
+                    cPageSec.InsertOne(s);
+                else
+                    cPageSec.ReplaceOne(x => x.Id.Equals(s.Id), s);
+            }
         }
 
     }

@@ -5,7 +5,13 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalApp.Web", "JournalApp.Web\JournalApp.Web.csproj", "{99D10225-43E9-4381-B7A8-1FB3D0E6E4CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalApp.Common", "JournalApp.Common\JournalApp.Common.csproj", "{B4A95DAF-20BD-4103-B3F7-1144E5896C79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalApp.Common", "JournalApp.Common\JournalApp.Common.csproj", "{B4A95DAF-20BD-4103-B3F7-1144E5896C79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample-data", "sample-data", "{1DC3654D-32DA-4B44-9416-49E9B57BC7E1}"
+	ProjectSection(SolutionItems) = preProject
+		sample-data\page-sections.json = sample-data\page-sections.json
+		sample-data\pages.json = sample-data\pages.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

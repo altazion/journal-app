@@ -22,5 +22,11 @@ namespace Home.Journal.Common.Model
         public string LastModifiedBy { get; set; }
 
         public DateTimeOffset? LastModifiedDate { get; set; } = DateTimeOffset.Now;
+
+        public string PageIcon { get; set; }
+
+        public bool IsPublic { get; set; }
+
+        public string ThemeId { get; set; }
     }
 }

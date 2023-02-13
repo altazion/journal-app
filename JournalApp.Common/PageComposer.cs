@@ -51,9 +51,23 @@ namespace Home.Journal.Common
                     {
                         blr.Append("<article id='content");
                         blr.Append(suffix);
-                        blr.Append("' class='");
+                       
+                        blr.Append("' class='content ");
                         blr.Append("kind-");
                         blr.Append(SanitizeCssClass(part.Kind));
+                        try
+                        {
+                            var classes = compo.AdditionalClasses;
+                            foreach (var c in classes)
+                            {
+                                blr.Append(" ");
+                                blr.Append(c);
+                            }
+                        }
+                        catch (NotImplementedException)
+                        {
+                            // pas de classes supplémentaires
+                        }
                         blr.AppendLine("'>");
                         blr.AppendLine(st);
                         blr.AppendLine("</article>");

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "7b646d7c-4cd8-4695-b5a0-722ccc72687b",
+    "Path": "/index.html",
+    "ParentId": null,
+    "UserIds": [],
+    "IsPublic" :  true,
+    "Title": "Bienvenue !"
+  },
+  {
+    "Id": "92ed74c1-4f4b-479e-b872-e77f97c84b9d",
+    "Path": "/public/index.html",
+    "ParentId": "7b646d7c-4cd8-4695-b5a0-722ccc72687b",
+    "UserIds": [],
+    "IsPublic": true,
+    "Title": "Fonctionnement"
+  }
+]

@@ -38,7 +38,7 @@ namespace Home.Journal.Web
 
             Console.WriteLine($" MongoDB database is up-to-date");
 
-            //PageDbHelper.TestCreate();
+            PageDbHelper.TestCreate();
 
             Console.WriteLine($" starting web service");
 

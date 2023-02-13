@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
 	  <RootNamespace>Home.Journal.Common</RootNamespace>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>Manoir App JournalApp Common</Title>
+	  <Authors>manoir.app</Authors>
+	  <Product>Journal App</Product>
+	  <PackageProjectUrl>https://www.manoir.app/</PackageProjectUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <RepositoryUrl>https://github.com/manoir-app/journal-app</RepositoryUrl>
   </PropertyGroup>
 
 	<ItemGroup>
