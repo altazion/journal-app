@@ -1,7 +1,7 @@
 ﻿using Home.Journal.Common;
 using Home.Journal.Common.Model;
-using Home.Journal.Web;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System;
 
@@ -12,8 +12,8 @@ namespace Home.Journal.Web
         public static void Main(string[] args)
         {
 
-            Console.WriteLine(" ╦┌─┐┬ ┬┬─┐┌┐┌┌─┐┬    ╔═╗╔═╗╔═╗");
-            Console.WriteLine(" ║│ ││ │├┬┘│││├─┤│    ╠═╣╠═╝╠═╝");
+            Console.WriteLine(" ╦┌─┐┬ ┬┬─┐┌┐┌┌─┐┬    ╔═╗╔═╗╔═╗");
+            Console.WriteLine(" ║│ ││ │├┬┘│││├─┤│    ╠═╣╠═╝╠═╝");
             Console.WriteLine("╚╝└─┘└─┘┴└─┘└┘┴ ┴┴─┘  ╩ ╩╩  ╩  ");
             Console.WriteLine("-------------------------------");
             Console.WriteLine("         by Manoir.app         ");
@@ -24,7 +24,7 @@ namespace Home.Journal.Web
 
             if (string.IsNullOrEmpty(port))
                 port = "27017";
-            if(string.IsNullOrEmpty(host) || string.IsNullOrEmpty(port))
+            if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(port))
             {
                 Console.WriteLine($" no MongoDB service defined");
                 return;
@@ -37,12 +37,16 @@ namespace Home.Journal.Web
             MongoDbHelper.CreateCollection<User>();
 
             Console.WriteLine($" MongoDB database is up-to-date");
-
+#if DEBUG
             PageDbHelper.TestCreate();
-
+#endif
             Console.WriteLine($" starting web service");
 
             var builder = WebApplication.CreateBuilder(args);
+            builder.WebHost.ConfigureKestrel(serverOptions =>
+                {
+                    serverOptions.AllowSynchronousIO = true;
+                });
 
 
             var app = builder.Build();
