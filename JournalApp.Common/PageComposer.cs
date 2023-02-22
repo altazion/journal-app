@@ -23,13 +23,6 @@ namespace Home.Journal.Common
         }
 
 
-        public static string GetHtml(string pageUrl, User currentUser)
-        {
-            var page = PageDbHelper.GetPageByUrl(pageUrl, false);
-
-            return GetHtml(page, currentUser);
-        }
-
         public static string GetHtml(Page page, User currentUser)
         {
             StringBuilder blr = new StringBuilder();

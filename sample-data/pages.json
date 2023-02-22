@@ -4,7 +4,7 @@
     "Path": "/index.html",
     "ParentId": null,
     "UserIds": [],
-    "IsPublic" :  true,
+    "IsPublic": true,
     "Title": "Bienvenue !"
   },
   {
@@ -14,5 +14,21 @@
     "UserIds": [],
     "IsPublic": true,
     "Title": "Fonctionnement"
+  },
+  {
+    "Id": "d63ec96c-eafa-47b2-a53b-bb8d72b9ede3",
+    "Path": "/user/index.html",
+    "ParentId": null,
+    "UserIds": [ "mcarbenay" ],
+    "IsPublic": false,
+    "Title": "Bienvenue Michael !"
+  },
+  {
+    "Id": "37730dfd-0dbc-457f-9ddc-4993a2caded4",
+    "Path": "/user/index.html",
+    "ParentId": null,
+    "UserIds": [ "mwaroquier" ],
+    "IsPublic": false,
+    "Title": "Bienvenue Mégane !"
   }
 ]

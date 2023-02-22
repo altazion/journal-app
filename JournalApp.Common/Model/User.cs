@@ -10,6 +10,7 @@ namespace Home.Journal.Common.Model
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string HashedPassword { get; set; }
+        public string FirstName { get; set; }
+        public string HashedPincode { get; set; }
     }
 }

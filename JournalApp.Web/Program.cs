@@ -2,6 +2,8 @@
 using Home.Journal.Common.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 
@@ -49,9 +51,13 @@ namespace Home.Journal.Web
                 });
 
 
+            builder.Services.AddAuthentication("Cookies").AddCookie();
+            builder.Services.AddAuthorization();
+            builder.Services.AddControllers();
+            
             var app = builder.Build();
 
-
+            
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -61,15 +67,21 @@ namespace Home.Journal.Web
                 app.UseHsts();
             }
 
+            app.UseRouting();
+
+            app.UseAuthentication();
+            
+            app.UseAuthorization();
+
             app.UseJournalPageMiddleware();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
-
-            //app.AddAuthorization();
-            //app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             app.Run();
         }

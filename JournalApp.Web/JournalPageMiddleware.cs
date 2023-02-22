@@ -1,12 +1,16 @@
 ﻿using Home.Journal.Common;
+using Home.Journal.Common.Model;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Home.Journal.Web
@@ -29,13 +33,31 @@ namespace Home.Journal.Web
 
             if (Path.GetExtension(url).Equals(".html"))
             {
+                var template = GetTemplate();
+
+                Page page = null;
+                
+                if (url.StartsWith("/user/"))
+                {
+                    httpContext.ChallengeAsync("Cookies").Wait();
+                    if(httpContext.User !=null 
+                        && httpContext.User.Identity !=null
+                        && httpContext.User.Identity.IsAuthenticated)
+                    {
+                        var username = httpContext.User.Claims.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
+                        page = PageDbHelper.GetUserPageByUrl(url, username);
+                    }
+                }
+                else
+                {
+                    page = PageDbHelper.GetPublicPageByUrl(url);
+                }
+
+                if (page == null)
+                    return _next(httpContext);
+
                 httpContext.Response.StatusCode = 200;
                 httpContext.Response.ContentType = "text/html";
-
-                var template = GetTemplate();
-                var page = PageDbHelper.GetPageByUrl(url, false);
-                if(page==null)
-                    return _next(httpContext);
 
                 var content = PageComposer.GetHtml(page, null);
 
