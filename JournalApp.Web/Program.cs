@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Threading.Tasks;
 
 namespace Home.Journal.Web
 {
@@ -51,7 +52,14 @@ namespace Home.Journal.Web
                 });
 
 
-            builder.Services.AddAuthentication("Cookies").AddCookie();
+            builder.Services.AddAuthentication("Cookies").AddCookie(options =>
+            {
+                options.SlidingExpiration = true;
+                options.Events.OnRedirectToLogin = context =>
+                {
+                    return Task.CompletedTask;
+                };
+            });
             builder.Services.AddAuthorization();
             builder.Services.AddControllers();
             

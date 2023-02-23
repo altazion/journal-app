@@ -32,6 +32,15 @@ namespace Home.Journal.Common
             return lst;
         }
 
+        public static List<Page> GetAllPublicPages()
+        {
+            var collection = MongoDbHelper.GetClient<Page>();
+            var lst = collection.Find(x => (!x.DateDeleted.HasValue)
+                    && x.IsPublic == true)
+                .ToList();
+            return lst;
+        }
+
         public static void TestCreate()
         {
             string pincode = "123456", username = "mcarbenay";
@@ -106,5 +115,18 @@ namespace Home.Journal.Common
                 .FirstOrDefault();
             return lst;
         }
+
+        public static List<Page> GetAllUserPages(string username)
+        {
+            var collection = MongoDbHelper.GetClient<Page>();
+            var lst = collection.Find(x => (!x.DateDeleted.HasValue)
+                    && x.UserIds != null
+                    && x.UserIds.Contains(username)
+                    && x.IsPublic == false)
+                .ToList();
+            return lst;
+        }
+
+
     }
 }
