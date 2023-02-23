@@ -14,7 +14,7 @@ namespace Home.Journal.Common
         {
             var collection = MongoDbHelper.GetClient<User>();
             var lst = collection.Find(x => x.Id.Equals(username)
-                        && x.HashedPincode.Equals(encodedPinCode))
+                        && x.HashedPinCode.Equals(encodedPinCode))
                 .FirstOrDefault();
             return lst;
         }

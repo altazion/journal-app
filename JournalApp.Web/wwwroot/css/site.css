@@ -15,7 +15,7 @@ html {
     min-height: 100%;
 }
 
-html, body, td, div {
+html, body, td, div, ul, nav, li, a, button {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -32,15 +32,61 @@ body {
     background:#ffffff;
 }
 
-#manoirHeaderBar nav {
-    position:fixed;
-    visibility:hidden;
-}
+    #manoirHeaderBar nav {
+        position: fixed;
+        visibility: hidden;
+        height: calc(100% - 59px);
+        padding: 10px 10px 0 0;
+        width: 240px;
+        border-right: solid 1px #efefef;
+        z-index: 5;
+        background: #ffffff;
+        border-top: solid 1px #efefef;
+    }
+
+
+
+    #manoirHeaderBar nav ul {
+        padding:0;
+        margin:0 0 0 10px;
+        list-style-type:none;
+    }
+
+    #manoirHeaderBar nav ul li {
+        display:block;
+        padding:8px 0;
+    }
+
+    #manoirHeaderBar nav a {
+        text-decoration:none;
+        color:#393939;
+    }
+
+
+    #manoirHeaderBar nav.opened {
+        visibility: visible;
+    }
+
+    #manoirHeaderBar nav #navPublic {
+        display:none;
+    }
+
+    #manoirHeaderBar nav.public #navPublic {
+        display: block;
+    }
+
+    #manoirHeaderBar nav #navUser {
+        display: none;
+    }
+
+    #manoirHeaderBar nav.user #navUser {
+        display: block;
+    }
 
     #manoirHeaderBar .header-bar {
         display: flex;
         flex-flow: row nowrap;
-        height: 40px;
+        height: 47px;
     }
 
     #manoirHeaderBar .breadCrumb {
@@ -78,8 +124,19 @@ body {
         display:inline-block;
     }
 
-main article {
-    padding: 10px 24px;
-    max-width: 768px;
-    margin: auto;
-}
+    #manoirHeaderBar .button-switch-page-type {
+        display:block;
+        width:100%;
+        position:absolute;
+        height:30px;
+        top:calc(100% - 30px);
+        left:0;
+        background:#efefef;
+        text-align:center;
+    }
+
+    main article {
+        padding: 10px 24px;
+        max-width: 768px;
+        margin: auto;
+    }

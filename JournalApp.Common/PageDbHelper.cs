@@ -68,7 +68,7 @@ namespace Home.Journal.Common
                 Id = username,
                 FirstName = "Michael",
                 Name = "CARBENAY",
-                HashedPincode = pincode
+                HashedPinCode = pincode
             };
             var cUser = MongoDbHelper.GetClient<User>();
             var tu = cUser.Find(x => x.Id.Equals(usr.Id)).FirstOrDefault();

@@ -1,4 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using Home.Journal.Common.Model;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,15 @@ namespace Home.Journal.Common
 {
     public static class MongoDbHelper
     {
+        static MongoDbHelper()
+        {
+            BsonClassMap.RegisterClassMap<User>(cm =>
+            {
+                cm.AutoMap();
+                cm.SetIgnoreExtraElements(true);
+            });
+        }
+
         public static IMongoCollection<T> GetClient<T>() where T : class
         {
             string name = typeof(T).Name;

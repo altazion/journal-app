@@ -46,6 +46,7 @@ namespace Home.Journal.Web.Controllers
 
             if (user != null)
             {
+                Console.WriteLine("found user");
                 var claims = new List<Claim>()
                  {
                      new Claim(ClaimTypes.NameIdentifier, user.Id),
@@ -67,6 +68,11 @@ namespace Home.Journal.Web.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties).Wait();
+                user.HashedPinCode = null;
+            }
+            else
+            {
+                Console.WriteLine($"no user for {username}/{pincode}");
             }
 
             return user;

@@ -19,6 +19,17 @@
         "MONGODB_SERVICE_PORT": "27017"
       }
     },
+    "JournalApp.Web sur ManoirAnzin": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7213;http://localhost:5079",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "MONGODB_SERVICE_HOST": "192.168.2.100",
+        "MONGODB_SERVICE_PORT": "27017"
+      }
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
