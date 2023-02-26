@@ -2,14 +2,14 @@
 
 html {
     font-size: 16px;
-    line-height:27px;
+    line-height: 27px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 18px;
-    line-height:32px;
-  }
+    html {
+        font-size: 18px;
+        line-height: 32px;
+    }
 }
 
 html {
@@ -23,16 +23,16 @@ html, body, td, div, ul, nav, li, a, button {
 }
 
 h1 {
-    font-size:2.4rem;
-    line-height:3rem;
-    margin-bottom:0.6rem;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    margin-bottom: 0.6rem;
 }
 
 h2 {
     font-size: 1.8rem;
     line-height: 2.2rem;
     margin-bottom: 0.1rem;
-    padding-bottom:0;   
+    padding-bottom: 0;
 }
 
 h3 {
@@ -40,20 +40,20 @@ h3 {
     line-height: 1.8rem;
     margin-bottom: 0.1rem;
     padding-bottom: 0;
-    margin-top:1.4rem;
+    margin-top: 1.4rem;
 }
 
 body {
-  margin:0;
-  padding:0;
-  color:#393939;
-  background-color:#fcfcfc;
+    margin: 0;
+    padding: 0;
+    color: #393939;
+    background-color: #fcfcfc;
 }
 
 #manoirHeaderBar {
-    display:block;
-    border-bottom:solid 1px #dcdcdc;
-    background:#ffffff;
+    display: block;
+    border-bottom: solid 1px #dcdcdc;
+    background: #ffffff;
 }
 
     #manoirHeaderBar nav {
@@ -68,45 +68,45 @@ body {
         border-top: solid 1px #efefef;
     }
 
-        #manoirHeaderBar nav {
-            margin-left:-10px;
+    #manoirHeaderBar nav {
+        margin-left: -10px;
+    }
+
+        #manoirHeaderBar nav ul {
+            padding: 0;
+            margin: 0 0 0 14px;
+            list-style-type: none;
+            color: #393939
         }
 
-            #manoirHeaderBar nav ul {
-                padding: 0;
-                margin: 0 0 0 14px;
-                list-style-type: none;
-                color: #393939
+            #manoirHeaderBar nav ul li {
+                display: block;
+                padding: 16px 0 0 0;
             }
 
-    #manoirHeaderBar nav ul li {
-        display:block;
-        padding:16px 0 0 0;
-    }
+                #manoirHeaderBar nav ul li div {
+                    margin: -10px 0 0 0;
+                    padding: 8px 8px 8px 12px;
+                    border-radius: 8px;
+                    font-size: smaller;
+                }
 
-        #manoirHeaderBar nav ul li div {
-            margin:-10px 0 0 0;
-            padding:8px 8px 8px 12px;
-            border-radius:8px;
-            font-size:smaller;
+                    #manoirHeaderBar nav ul li div.active {
+                        background: #004F7C;
+                        color: #efefef;
+                    }
+
+        #manoirHeaderBar nav a {
+            text-decoration: none;
+            color: #393939;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 0px 0 1px 0.6rem;
+            vertical-align: bottom;
+            width: calc(100% - 40px);
         }
-
-        #manoirHeaderBar nav ul li div.active {
-            background:#004F7C;
-            color:#efefef;
-        }
-
-            #manoirHeaderBar nav a {
-        text-decoration:none;
-        color:#393939;
-        display:inline-block;
-        text-overflow:ellipsis;
-        white-space:nowrap;
-        overflow:hidden;
-        padding:0px 0 1px 0.6rem;
-        vertical-align:bottom;
-        
-    }
 
         #manoirHeaderBar nav ul li .active a {
             color: #efefef;
@@ -114,30 +114,29 @@ body {
 
 
         #manoirHeaderBar nav a {
-
         }
-         
+
 
 
         #manoirHeaderBar nav.opened {
             visibility: visible;
         }
 
-    #manoirHeaderBar nav #navPublic {
-        display:none;
-    }
+        #manoirHeaderBar nav #navPublic {
+            display: none;
+        }
 
-    #manoirHeaderBar nav.public #navPublic {
-        display: block;
-    }
+        #manoirHeaderBar nav.public #navPublic {
+            display: block;
+        }
 
-    #manoirHeaderBar nav #navUser {
-        display: none;
-    }
+        #manoirHeaderBar nav #navUser {
+            display: none;
+        }
 
-    #manoirHeaderBar nav.user #navUser {
-        display: block;
-    }
+        #manoirHeaderBar nav.user #navUser {
+            display: block;
+        }
 
     #manoirHeaderBar .header-bar {
         display: flex;
@@ -151,16 +150,16 @@ body {
         font-size: 20px;
     }
 
-    #manoirHeaderBar .breadCrumb ul {
-        margin:0;
-        list-style-type:none;
-        padding:0;
-    }
+        #manoirHeaderBar .breadCrumb ul {
+            margin: 0;
+            list-style-type: none;
+            padding: 0;
+        }
 
-    #manoirHeaderBar .breadCrumb li {
-        display:inline-block;
-        color:#898989;
-    }
+        #manoirHeaderBar .breadCrumb li {
+            display: inline-block;
+            color: #898989;
+        }
 
     #manoirHeaderBar button {
         border: none;
@@ -168,34 +167,34 @@ body {
         cursor: pointer;
     }
 
-    #manoirHeaderBar button.journal-button {
-        font-size: 18px;
-        background: #004F7C;
-        padding: 4px 10px 0px 10px;
-        color: white;
-    }
+        #manoirHeaderBar button.journal-button {
+            font-size: 18px;
+            background: #004F7C;
+            padding: 4px 10px 0px 10px;
+            color: white;
+        }
 
-    #manoirHeaderBar button.login-button {
-        width:160px;
-        display:inline-block;
-    }
+        #manoirHeaderBar button.login-button {
+            width: 160px;
+            display: inline-block;
+        }
 
     #manoirHeaderBar .button-switch-page-type {
-        display:block;
-        width:100%;
-        position:absolute;
-        height:60px;
-        top:calc(100% - 60px);
-        left:0;
-        background:#efefef;
-        text-align:center;
-        text-transform:uppercase;
-        font-weight:600;
-        color:#494949;
+        display: block;
+        width: 100%;
+        position: absolute;
+        height: 60px;
+        top: calc(100% - 60px);
+        left: 0;
+        background: #efefef;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #494949;
     }
 
-    main article {
-        padding: 0 24px;
-        max-width: 768px;
-        margin: auto;
-    }
+main article {
+    padding: 0 24px;
+    max-width: 768px;
+    margin: auto;
+}
