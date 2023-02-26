@@ -44,28 +44,60 @@ body {
         border-top: solid 1px #efefef;
     }
 
+        #manoirHeaderBar nav {
+            margin-left:-10px;
+        }
 
-
-    #manoirHeaderBar nav ul {
-        padding:0;
-        margin:0 0 0 10px;
-        list-style-type:none;
-    }
+            #manoirHeaderBar nav ul {
+                padding: 0;
+                margin: 0 0 0 14px;
+                list-style-type: none;
+                color: #393939
+            }
 
     #manoirHeaderBar nav ul li {
         display:block;
-        padding:8px 0;
+        padding:16px 0 0 0;
     }
 
-    #manoirHeaderBar nav a {
+        #manoirHeaderBar nav ul li div {
+            margin:-10px 0 0 0;
+            padding:8px 8px 8px 12px;
+            border-radius:8px;
+            font-size:smaller;
+        }
+
+        #manoirHeaderBar nav ul li div.active {
+            background:#004F7C;
+            color:#efefef;
+        }
+
+            #manoirHeaderBar nav a {
         text-decoration:none;
         color:#393939;
+        display:inline-block;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        overflow:hidden;
+        padding:0px 0 1px 0.6rem;
+        vertical-align:text-bottom;
+        
     }
 
+        #manoirHeaderBar nav ul li .active a {
+            color: #efefef;
+        }
 
-    #manoirHeaderBar nav.opened {
-        visibility: visible;
-    }
+
+        #manoirHeaderBar nav a {
+
+        }
+         
+
+
+        #manoirHeaderBar nav.opened {
+            visibility: visible;
+        }
 
     #manoirHeaderBar nav #navPublic {
         display:none;
@@ -128,15 +160,18 @@ body {
         display:block;
         width:100%;
         position:absolute;
-        height:30px;
-        top:calc(100% - 30px);
+        height:60px;
+        top:calc(100% - 60px);
         left:0;
         background:#efefef;
         text-align:center;
+        text-transform:uppercase;
+        font-weight:600;
+        color:#494949;
     }
 
     main article {
-        padding: 10px 24px;
+        padding: 0 24px;
         max-width: 768px;
         margin: auto;
     }

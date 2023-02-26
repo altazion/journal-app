@@ -90,12 +90,12 @@
 
             var btnLogin = document.getElementById("btnLogin") as HTMLButtonElement;
             btnLogin.addEventListener("click", (evt: MouseEvent) => {
-                self.login();
+                MainMenuBar.login();
                 return true;
             });
 
         }
-        login() {
+        static login() {
             fetch('/api/users/login?username=mcarbenay&pincode=123456')
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
@@ -147,28 +147,35 @@
             }
         }
         private BindPages(navUl: HTMLElement, pages: Array<PageHierarchy>) {
-            var content = this.GetPageNavContent(pages);
+            var content = this.GetPageNavContent(pages, true);
             navUl.innerHTML = content;
         }
 
-        private GetPageNavContent(pages: Array<PageHierarchy>): string {
+        private GetPageNavContent(pages: Array<PageHierarchy>, isRoot:boolean): string {
             var content: string = "";
             for (var i = 0; i < pages.length; i++) {
                 var pg = pages[i];
-                content += "<li class='page icon icon-";
+                content += "<li class='page'><div class='";
+                if (document.location.pathname.toLowerCase() == pg.page.path.toLowerCase())
+                    content += "active";
+                content += "'><span class='icon icon-";
                 if (pg.page.pageIcon != null)
                     content += pg.page.pageIcon;
+                else if (isRoot)
+                    content += "home";
                 else
-                    content += "document";
-                content += "'><a href='";
+                    content += "common-file";
+
+
+                content += "'></span><a href='";
                 content += pg.page.path;
                 content += "'>";
                 content += pg.page.title;
-                content += "</a>";
+                content += "</a></div>";
 
                 if (pg.subPages != null && pg.subPages.length > 0) {
                     content += "<ul class='sub-pages'>"
-                    content += this.GetPageNavContent(pg.subPages);
+                    content += this.GetPageNavContent(pg.subPages, false);
                     content += "</ul>";
                 }
             }

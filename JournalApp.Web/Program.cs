@@ -52,6 +52,11 @@ namespace Home.Journal.Web
                 });
 
 
+            builder.Services.AddResponseCompression(configureOptions =>
+            {
+                configureOptions.EnableForHttps = true;
+            });
+
             builder.Services.AddAuthentication("Cookies").AddCookie(options =>
             {
                 options.SlidingExpiration = true;
@@ -84,11 +89,25 @@ namespace Home.Journal.Web
             app.UseJournalPageMiddleware();
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                HttpsCompression = Microsoft.AspNetCore.Http.Features.HttpsCompressionMode.Compress,
+                OnPrepareResponse = context =>
+                {
+                    context.Context.Response.Headers.CacheControl = "private; max-age=900";
+                }
+            }) ;
+
+            app.UseResponseCompression();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                ApplyCurrentCultureToResponseHeaders = true
             });
 
             app.Run();
