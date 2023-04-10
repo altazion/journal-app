@@ -19,6 +19,7 @@ namespace Home.Journal.Common.Model
         public string Source { get; set; }
 
         public string Data { get; set; }
+        public Dictionary<string, string> Properties { get; set; } = new Dictionary<string, string>();
 
     }
 }

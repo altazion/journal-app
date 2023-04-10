@@ -10,6 +10,8 @@
 	  <PackageProjectUrl>https://www.manoir.app/</PackageProjectUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <RepositoryUrl>https://github.com/manoir-app/journal-app</RepositoryUrl>
+	  <AssemblyVersion>1.1.0</AssemblyVersion>
+	  <Version>1.1.0</Version>
   </PropertyGroup>
 
 	<ItemGroup>
