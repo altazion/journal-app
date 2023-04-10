@@ -17,15 +17,16 @@ namespace Home.Journal.Common.Composers
         public string GetHtml(Page page, PageSection section, User currentUser, string outputTagIdSuffix)
         {
             StringBuilder blr = new StringBuilder();
-            blr.Append(Markdown.ToHtml(section.Data, _pipeline));
-            string content = blr.ToString();
+
+            string content = section.Data;
             if (section.Properties != null)
             {
                 foreach (var k in section.Properties.Keys)
                     content = content.Replace("%%" + k + "%%", section.Properties[k]);
             }
 
-            return content;
+            blr.Append(Markdown.ToHtml(content, _pipeline));
+            return blr.ToString();
         }
     }
 }
