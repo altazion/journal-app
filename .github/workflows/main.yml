@@ -33,5 +33,6 @@ jobs:
           version: 1.0.1
           project-path: JournalApp.Common/JournalApp.Common.csproj
           solution-path: maNoir.JournalApp.sln
+          nuget-feed-name: mynugetorg
           nuget-feed-password: ${{ secrets.NUGETORG_TOKEN }}
           nuget-feed-url: https://www.nuget.org/api/v2/package
