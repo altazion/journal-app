@@ -1,12 +1,6 @@
 ﻿using Home.Journal.Common.Model;
 using Markdig;
-using Markdig.Syntax;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Home.Journal.Common.Composers
 {
@@ -23,7 +17,15 @@ namespace Home.Journal.Common.Composers
         public string GetHtml(Page page, PageSection section, User currentUser, string outputTagIdSuffix)
         {
             StringBuilder blr = new StringBuilder();
-            blr.Append(Markdown.ToHtml(section.Data, _pipeline));
+
+            string content = section.Data;
+            if (section.Properties != null)
+            {
+                foreach (var k in section.Properties.Keys)
+                    content = content.Replace("%%" + k + "%%", section.Properties[k]);
+            }
+
+            blr.Append(Markdown.ToHtml(content, _pipeline));
             return blr.ToString();
         }
     }
