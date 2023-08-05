@@ -19,10 +19,19 @@ jobs:
         with:
           dotnet-version: "6.0"
 
-      - name: Build, Test, and Publish NuGet
+      - name: Publish Nuget To Github
         uses: wahinekai/actions-publish-nuget@v3.0.1
         with:
           version: 1.0.1
           project-path: JournalApp.Common/JournalApp.Common.csproj
           solution-path: maNoir.JournalApp.sln
           nuget-feed-password: ${{ secrets.PACKAGES_TOKEN }}
+
+      - name: Publish Nuget To Nuget
+        uses: wahinekai/actions-publish-nuget@v3.0.1
+        with:
+          version: 1.0.1
+          project-path: JournalApp.Common/JournalApp.Common.csproj
+          solution-path: maNoir.JournalApp.sln
+          nuget-feed-password: ${{ secrets.NUGETORG_TOKEN }}
+          nuget-feed-url: https://www.nuget.org/api/v2/package
