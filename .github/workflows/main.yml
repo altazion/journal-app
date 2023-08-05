@@ -22,7 +22,7 @@ jobs:
       - name: Build, Test, and Publish NuGet
         uses: wahinekai/actions-publish-nuget@v3.0.1
         with:
-          version: 1.0.0
+          version: 1.0.1
           project-path: JournalApp.Common/JournalApp.Common.csproj
           solution-path: maNoir.JournalApp.sln
           nuget-feed-password: ${{ secrets.PACKAGES_TOKEN }}
