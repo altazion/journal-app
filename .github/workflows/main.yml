@@ -19,10 +19,14 @@ jobs:
         with:
           dotnet-version: "6.0"
 
+      - name: Set tag var
+        id: vars
+        run: echo "nugetver=$(date +%y.%m%d.%H)" >> $GITHUB_OUTPUT
+
       - name: Publish Nuget To Github
         uses: wahinekai/actions-publish-nuget@v3.0.1
         with:
-          version: 1.0.1
+          version: ${{ steps.vars.outputs.nugetver }}
           project-path: JournalApp.Common/JournalApp.Common.csproj
           solution-path: maNoir.JournalApp.sln
           nuget-feed-password: ${{ secrets.PACKAGES_TOKEN }}
@@ -30,7 +34,7 @@ jobs:
       - name: Publish Nuget To Nuget
         uses: wahinekai/actions-publish-nuget@v3.0.1
         with:
-          version: 1.0.1
+          version: ${{ steps.vars.outputs.nugetver }}
           project-path: JournalApp.Common/JournalApp.Common.csproj
           solution-path: maNoir.JournalApp.sln
           nuget-feed-name: mynugetorg
