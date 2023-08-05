@@ -31,7 +31,7 @@ jobs:
           solution-path: maNoir.JournalApp.sln
           nuget-feed-password: ${{ secrets.PACKAGES_TOKEN }}
 
-      - name: Publish Nuget To Nuget.org
+      - name: Publish Nuget To Nuget
         uses: wahinekai/actions-publish-nuget@v3.0.1
         with:
           version: ${{ steps.vars.outputs.nugetver }}
